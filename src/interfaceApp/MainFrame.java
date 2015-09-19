@@ -15,17 +15,11 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.FlowLayout;
 import javax.swing.JLabel;
-import java.awt.Component;
-import javax.swing.Box;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import core.enumera.DocCliente;
 import core.enumera.Uf;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class MainFrame extends JFrame{
 
@@ -40,6 +34,22 @@ public class MainFrame extends JFrame{
 	private JTextField tf_loug;
 	private int docFlag = 0;
 	private JTextField tf_cidade;
+	private JMenuBar menuBar;
+	private JMenu mnArquivo;
+	private JMenuItem mntmGerarRelatorio;
+	private JMenuItem mntmAbrirRelatrio;
+	private List list;
+	private JTabbedPane tabbedPane;
+	private JPanel panel;
+	private JLabel lbl_nome;
+	private JLabel lbl_doc;
+	private JComboBox<DocCliente> cb_doc;
+	private JComboBox<Uf> cb_ufEmissor;
+	private JLabel lbl_cidade;
+	private JLabel lbl_ufEmissor;
+	private JLabel lbl_uf;
+	private JComboBox<Uf> cb_uf;
+	
 
 	/**
 	 * Launch the application.
@@ -65,90 +75,77 @@ public class MainFrame extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
 		
-		JMenuBar menuBar = new JMenuBar();
+		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnArquivo = new JMenu("Arquivo");
+		mnArquivo = new JMenu("Arquivo");
 		menuBar.add(mnArquivo);
 		
-		JMenuItem mntmGerarRelatorio = new JMenuItem("Gerar Relat\u00F3rio");
+		mntmGerarRelatorio = new JMenuItem("Gerar Relat\u00F3rio");
 		mnArquivo.add(mntmGerarRelatorio);
 		
-		JMenuItem mntmAbrirRelatrio = new JMenuItem("Abrir Relat\u00F3rio");
+		mntmAbrirRelatrio = new JMenuItem("Abrir Relat\u00F3rio");
 		mnArquivo.add(mntmAbrirRelatrio);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		List list = new List();
+		list = new List();
 		contentPane.add(list, BorderLayout.WEST);
+		//temporario----------------
 		for(int i = 0; i < 30; i++){
 			list.add("v-" + i);
 		}
+		//---------------------------
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		contentPane.add(tabbedPane, BorderLayout.CENTER);
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		FlowLayout flowLayout_1 = (FlowLayout) panel.getLayout();
 		flowLayout_1.setAlignment(FlowLayout.LEFT);
 		tabbedPane.addTab("Cliente", null, panel, null);
 		
-		JLabel lbl_nome = new JLabel("Nome:");
+		lbl_nome = new JLabel("Nome:");
 		panel.add(lbl_nome);
 		
 		tf_nome = new JTextField();
 		panel.add(tf_nome);
 		tf_nome.setColumns(35);
 		
-		JLabel lbl_doc = new JLabel("Documento:");
+		lbl_doc = new JLabel("Documento:");
 		panel.add(lbl_doc);
 		
-		JComboBox cb_doc = new JComboBox();
-		cb_doc.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				if(e.getSource()==cb_doc){
-					JComboBox cb = (JComboBox)e.getSource();
-					DocCliente dc = (DocCliente)cb.getSelectedItem();
-					docFlag = dc.getId();
-					panel.repaint();
-				}
-			}
-		});
-		cb_doc.setModel(new DefaultComboBoxModel(DocCliente.values()));
+		cb_doc = new JComboBox<DocCliente>();
+		cb_doc.setModel(new DefaultComboBoxModel<DocCliente>(DocCliente.values()));
 		panel.add(cb_doc);	
 		
 		tf_doc = new JTextField();
 		panel.add(tf_doc);
 		tf_doc.setColumns(11);
 		
-		JLabel lbl_ufEmissor = new JLabel("UF Emissor:");
+		lbl_ufEmissor = new JLabel("UF Emissor:");
 		panel.add(lbl_ufEmissor);
 		
-		JComboBox cb_ufEmissor = new JComboBox();
-		if(docFlag == 0){
-			cb_ufEmissor.setEnabled(true);
-		}else{
-			cb_ufEmissor.setEnabled(false);
-		}
-		cb_ufEmissor.setModel(new DefaultComboBoxModel(Uf.values()));
+		cb_ufEmissor = new JComboBox<Uf>();
+		cb_ufEmissor.setModel(new DefaultComboBoxModel<Uf>(Uf.values()));
 		if(docFlag == 0){
 
 		}
 		panel.add(cb_ufEmissor);
 		
-		JLabel lbl_cidade = new JLabel("Cidade:");
+		lbl_cidade = new JLabel("Cidade:");
 		panel.add(lbl_cidade);
 		
 		tf_cidade = new JTextField();
 		panel.add(tf_cidade);
 		tf_cidade.setColumns(10);
 		
-		JLabel lbl_uf = new JLabel("UF:");
+		lbl_uf = new JLabel("UF:");
 		panel.add(lbl_uf);
 		
-		JComboBox cb_uf = new JComboBox();
+		cb_uf = new JComboBox<Uf>();
 		cb_uf.setModel(new DefaultComboBoxModel(Uf.values()));
 		panel.add(cb_uf);
 		
