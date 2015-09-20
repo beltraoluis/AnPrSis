@@ -20,6 +20,8 @@ import javax.swing.DefaultComboBoxModel;
 import core.enumera.DocCliente;
 import core.enumera.Uf;
 import interfaceApp.Panel.ClientePanel;
+import interfaceApp.Panel.VeiculoPanel;
+
 import java.awt.Component;
 import javax.swing.Box;
 
@@ -43,8 +45,8 @@ public class MainFrame extends JFrame{
 	private JButton btnEditar;
 	private JButton btnSalvar;
 	private JButton btnAvaliar;
-	private Component horizontalStrut;
 	private JPanel Sinistro;
+	private JButton button;
 	
 
 	/**
@@ -90,7 +92,7 @@ public class MainFrame extends JFrame{
 		list = new List();
 		contentPane.add(list, BorderLayout.WEST);
 		//temporario----------------
-		for(int i = 0; i < 30; i++){
+		for(int i = 0; i < 150; i++){
 			list.add("v-" + i);
 		}
 		//---------------------------
@@ -103,8 +105,8 @@ public class MainFrame extends JFrame{
 		fl_Cliente.setAlignment(FlowLayout.LEFT);
 		tabbedPane.addTab("Cliente", null, Cliente, null);
 				
-		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("Veiculo", null, panel_1, null);
+		JPanel Veiculo = new VeiculoPanel();
+		tabbedPane.addTab("Veiculo", null, Veiculo, null);
 		
 		Sinistro = new JPanel();
 		tabbedPane.addTab("Sinistro", null, Sinistro, null);
@@ -119,13 +121,13 @@ public class MainFrame extends JFrame{
 		
 		textField = new JTextField();
 		panel_3.add(textField);
-		textField.setColumns(20);
+		textField.setColumns(15);
 		
 		JButton btnBuscar = new JButton("Buscar");
 		panel_3.add(btnBuscar);
 		
-		horizontalStrut = Box.createHorizontalStrut(32);
-		panel_3.add(horizontalStrut);
+		button = new JButton("Voltar");
+		panel_3.add(button);
 		
 		btnAvaliar = new JButton("Avaliar");
 		panel_3.add(btnAvaliar);

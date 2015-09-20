@@ -10,6 +10,8 @@ import core.enumera.Uf;
 import javax.swing.JFormattedTextField;
 import java.awt.Component;
 import javax.swing.Box;
+import java.awt.Checkbox;
+import java.awt.Label;
 
 public class ClientePanel extends JPanel {
 	private JTextField tfNome;
@@ -33,7 +35,10 @@ public class ClientePanel extends JPanel {
 		
 		tfNome = new JTextField();
 		add(tfNome);
-		tfNome.setColumns(35);
+		tfNome.setColumns(27);
+		
+		Checkbox checkbox = new Checkbox("Seguradora");
+		add(checkbox);
 		
 		JLabel lblDocumento = new JLabel("Documento:");
 		add(lblDocumento);
@@ -46,7 +51,7 @@ public class ClientePanel extends JPanel {
 		add(tfDocumento);
 		tfDocumento.setColumns(11);
 		
-		JLabel lblUfEmisora = new JLabel("UF Emisora:");
+		JLabel lblUfEmisora = new JLabel("UF Emissora:");
 		add(lblUfEmisora);
 		
 		JComboBox cbUfEmissora = new JComboBox();
@@ -78,7 +83,7 @@ public class ClientePanel extends JPanel {
 		
 		textField = new JTextField();
 		add(textField);
-		textField.setColumns(30);
+		textField.setColumns(31);
 		
 		JLabel lblNumero = new JLabel("N\u00FAmero:");
 		add(lblNumero);
@@ -92,14 +97,14 @@ public class ClientePanel extends JPanel {
 		
 		tfBairro = new JTextField();
 		add(tfBairro);
-		tfBairro.setColumns(10);
+		tfBairro.setColumns(15);
 		
 		JLabel lblCep = new JLabel("CEP:");
 		add(lblCep);
 		
 		tfCep = new JTextField();
 		add(tfCep);
-		tfCep.setColumns(10);
+		tfCep.setColumns(6);
 		
 		JLabel lblTelefone = new JLabel("Telefone:");
 		add(lblTelefone);
@@ -110,7 +115,14 @@ public class ClientePanel extends JPanel {
 		
 		tfTelefone = new JTextField();
 		add(tfTelefone);
-		tfTelefone.setColumns(9);
+		tfTelefone.setColumns(7);
+		
+		JLabel lblRamal = new JLabel("Ramal:");
+		add(lblRamal);
+		
+		JFormattedTextField formattedTextField = new JFormattedTextField();
+		formattedTextField.setColumns(3);
+		add(formattedTextField);
 		
 		JLabel lblCelular = new JLabel("Celular:");
 		add(lblCelular);
@@ -121,7 +133,7 @@ public class ClientePanel extends JPanel {
 		
 		tfCelular = new JTextField();
 		add(tfCelular);
-		tfCelular.setColumns(9);
+		tfCelular.setColumns(7);
 
 	}
 
