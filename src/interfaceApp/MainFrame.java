@@ -20,6 +20,8 @@ import javax.swing.DefaultComboBoxModel;
 import core.enumera.DocCliente;
 import core.enumera.Uf;
 import interfaceApp.Panel.ClientePanel;
+import java.awt.Component;
+import javax.swing.Box;
 
 
 public class MainFrame extends JFrame{
@@ -38,6 +40,11 @@ public class MainFrame extends JFrame{
 	private List list;
 	private JTabbedPane tabbedPane;
 	private JPanel Cliente;
+	private JButton btnEditar;
+	private JButton btnSalvar;
+	private JButton btnAvaliar;
+	private Component horizontalStrut;
+	private JPanel Sinistro;
 	
 
 	/**
@@ -99,8 +106,8 @@ public class MainFrame extends JFrame{
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("Veiculo", null, panel_1, null);
 		
-		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.addTab("Sinistro", null, tabbedPane_1, null);
+		Sinistro = new JPanel();
+		tabbedPane.addTab("Sinistro", null, Sinistro, null);
 		
 		JPanel panel_2 = new JPanel();
 		tabbedPane.addTab("Relat\u00F3rio", null, panel_2, null);
@@ -112,10 +119,22 @@ public class MainFrame extends JFrame{
 		
 		textField = new JTextField();
 		panel_3.add(textField);
-		textField.setColumns(10);
+		textField.setColumns(20);
 		
 		JButton btnBuscar = new JButton("Buscar");
 		panel_3.add(btnBuscar);
+		
+		horizontalStrut = Box.createHorizontalStrut(32);
+		panel_3.add(horizontalStrut);
+		
+		btnAvaliar = new JButton("Avaliar");
+		panel_3.add(btnAvaliar);
+		
+		btnEditar = new JButton("Editar");
+		panel_3.add(btnEditar);
+		
+		btnSalvar = new JButton("Salvar");
+		panel_3.add(btnSalvar);
 		
 			
 		

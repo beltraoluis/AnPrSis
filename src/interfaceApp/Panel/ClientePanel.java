@@ -8,6 +8,8 @@ import javax.swing.DefaultComboBoxModel;
 import core.enumera.DocCliente;
 import core.enumera.Uf;
 import javax.swing.JFormattedTextField;
+import java.awt.Component;
+import javax.swing.Box;
 
 public class ClientePanel extends JPanel {
 	private JTextField tfNome;
@@ -16,6 +18,10 @@ public class ClientePanel extends JPanel {
 	private JTextField textField;
 	private JTextField tfBairro;
 	private JTextField tfCep;
+	private JTextField tfDdd1;
+	private JTextField tfTelefone;
+	private JTextField tfDdd2;
+	private JTextField tfCelular;
 
 	/**
 	 * Create the panel.
@@ -47,6 +53,9 @@ public class ClientePanel extends JPanel {
 		cbUfEmissora.setModel(new DefaultComboBoxModel(Uf.values()));
 		add(cbUfEmissora);
 		
+		Component horizontalStrut_1 = Box.createHorizontalStrut(30);
+		add(horizontalStrut_1);
+		
 		JLabel lblCidade = new JLabel("Cidade:");
 		add(lblCidade);
 		
@@ -61,12 +70,15 @@ public class ClientePanel extends JPanel {
 		cbUf.setModel(new DefaultComboBoxModel(Uf.values()));
 		add(cbUf);
 		
+		Component horizontalStrut = Box.createHorizontalStrut(180);
+		add(horizontalStrut);
+		
 		JLabel lblLougradouro = new JLabel("Lougradouro:");
 		add(lblLougradouro);
 		
 		textField = new JTextField();
 		add(textField);
-		textField.setColumns(35);
+		textField.setColumns(30);
 		
 		JLabel lblNumero = new JLabel("N\u00FAmero:");
 		add(lblNumero);
@@ -88,6 +100,28 @@ public class ClientePanel extends JPanel {
 		tfCep = new JTextField();
 		add(tfCep);
 		tfCep.setColumns(10);
+		
+		JLabel lblTelefone = new JLabel("Telefone:");
+		add(lblTelefone);
+		
+		tfDdd1 = new JTextField();
+		add(tfDdd1);
+		tfDdd1.setColumns(2);
+		
+		tfTelefone = new JTextField();
+		add(tfTelefone);
+		tfTelefone.setColumns(9);
+		
+		JLabel lblCelular = new JLabel("Celular:");
+		add(lblCelular);
+		
+		tfDdd2 = new JTextField();
+		add(tfDdd2);
+		tfDdd2.setColumns(2);
+		
+		tfCelular = new JTextField();
+		add(tfCelular);
+		tfCelular.setColumns(9);
 
 	}
 
